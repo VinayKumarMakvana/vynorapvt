@@ -5,9 +5,9 @@ import { motion } from "framer-motion";
 
 const CREDENTIALS = [
   { label: "Engagement", value: "1 developer, start to finish" },
-  { label: "Stack", value: "Next.js · TypeScript · Python" },
+  { label: "Stack", value: "Next.js · TypeScript · React · Python · Java" },
   { label: "Based in", value: "Kota, Rajasthan, India" },
-  { label: "Serves", value: "NY · London · Dubai" },
+  { label: "Serves", value: "NY · London · Dubai · India · Entire World Wide" },
 ];
 
 const INDUSTRIES = [

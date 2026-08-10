@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------------------------------------------------------------
+   Base
+------------------------------------------------------------------------- */
+* {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+html,
+body {
+  background-color: #0a0d12;
+  color: #edf1f5;
+}
+
+body {
+  font-family: var(--font-body), sans-serif;
+}
+
+/* Visible keyboard focus everywhere — quality floor, not optional */
+:focus-visible {
+  outline: 2px solid #3fe9cf;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Slim, dark scrollbar to match the aesthetic */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #0a0d12;
+}
+::-webkit-scrollbar-thumb {
+  background: #212a36;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #2e6fe0;
+}
+
+/* -------------------------------------------------------------------------
+   Component-level utility classes
+------------------------------------------------------------------------- */
+
+@layer components {
+  /* Sticky nav glass panel */
+  .glass-panel {
+    @apply bg-void/70 backdrop-blur-xl border-b border-surface-border;
+  }
+
+  /* Eyebrow / mono label used above section headings */
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-widest2 text-teal-bright;
+  }
+
+  /* Gradient headline text (blue -> teal) */
+  .text-signal-gradient {
+    @apply bg-signal-gradient bg-clip-text text-transparent;
+  }
+
+  /* Standard section container */
+  .section-shell {
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+  }
+
+  /* Contact form field styling */
+  .form-input {
+    @apply w-full rounded-lg border border-surface-border bg-void px-4 py-2.5 text-sm text-ink-primary
+           placeholder:text-ink-muted transition-colors duration-200
+           focus:border-teal-bright/60 focus:outline-none;
+  }
+
+  /* Hairline divider used between panel edges (circuit-trace motif) */
+  .trace-line {
+    @apply relative;
+  }
+  .trace-line::before {
+    content: "";
+    @apply absolute inset-0 pointer-events-none;
+    background-image: linear-gradient(
+      90deg,
+      transparent,
+      rgba(63, 233, 207, 0.35),
+      transparent
+    );
+    height: 1px;
+    top: 0;
+  }
+}

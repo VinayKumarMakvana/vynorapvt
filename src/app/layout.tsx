@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import { Plus_Jakarta_Sans, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
-// Display face — geometric, used for headlines with restraint.
+// Display face
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
@@ -12,7 +12,7 @@ const plusJakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-// Body face — high legibility for paragraph copy and UI text.
+// Body face
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600"],
@@ -20,7 +20,7 @@ const inter = Inter({
   display: "swap",
 });
 
-// Utility/mono face — used sparingly for eyebrows, tags, and data-style labels.
+// Utility/mono face
 const plexMono = IBM_Plex_Mono({
   subsets: ["latin"],
   weight: ["400", "500"],
@@ -29,20 +29,21 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vinay's Web Studio | Premium Web Design for Local Businesses",
+  title: "VYNORA | TECHNOLOGY • INNOVATION • IMPACT",
   description:
-    "Custom, high-performance web design and development for clinics, salons, and home service businesses in New York, London, and Dubai. Built by full-stack developer Vinay Kumar Makvana.",
+    "Premium, scalable, and secure digital solutions for modern businesses. Specializing in custom web applications, UX/UI design, and high-performance engineering.",
   keywords: [
-    "premium web design",
-    "web development agency",
-    "clinic website design",
-    "salon website design",
-    "freelance full-stack developer",
+    "premium web development",
+    "enterprise solutions",
+    "UX/UI design",
+    "web hosting",
+    "SEO services",
+    "vynora tech",
   ],
   openGraph: {
-    title: "Vinay's Web Studio | Premium Web Design for Local Businesses",
+    title: "VYNORA | Digital Solutions",
     description:
-      "Custom, high-performance web solutions designed to increase bookings and revenue for clinics, salons, and home service businesses.",
+      "Empowering businesses through cutting-edge technology, striking design, and impactful results.",
     type: "website",
   },
 };

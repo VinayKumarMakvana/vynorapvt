@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* -------------------------------------------------------------------------
-   Base
+   Base - Light Corporate Theme
 ------------------------------------------------------------------------- */
 * {
   scroll-behavior: smooth;
@@ -20,34 +20,34 @@
 
 html,
 body {
-  background-color: #0a0d12;
-  color: #edf1f5;
+  background-color: #ffffff; /* Corporate White */
+  color: #0f172a; /* Navy Default */
 }
 
 body {
   font-family: var(--font-body), sans-serif;
 }
 
-/* Visible keyboard focus everywhere — quality floor, not optional */
+/* Visible keyboard focus */
 :focus-visible {
-  outline: 2px solid #3fe9cf;
+  outline: 2px solid #007cc3; /* Azure Blue */
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-/* Slim, dark scrollbar to match the aesthetic */
+/* Corporate light scrollbar */
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #0a0d12;
+  background: #f8f9fa; /* Corporate Gray */
 }
 ::-webkit-scrollbar-thumb {
-  background: #212a36;
+  background: #cbd5e1; /* Slate 300 */
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #2e6fe0;
+  background: #94a3b8; /* Slate 400 */
 }
 
 /* -------------------------------------------------------------------------
@@ -55,34 +55,39 @@ body {
 ------------------------------------------------------------------------- */
 
 @layer components {
-  /* Sticky nav glass panel */
+  /* Sticky nav glass panel - Light Mode */
   .glass-panel {
-    @apply bg-void/70 backdrop-blur-xl border-b border-surface-border;
+    @apply bg-white/90 backdrop-blur-xl border-b border-corporate-border shadow-sm;
   }
 
   /* Eyebrow / mono label used above section headings */
   .eyebrow {
-    @apply font-mono text-xs uppercase tracking-widest2 text-teal-bright;
+    @apply font-mono text-[10px] md:text-[11px] uppercase tracking-[0.3em] text-azure font-bold;
   }
 
-  /* Gradient headline text (blue -> teal) */
-  .text-signal-gradient {
-    @apply bg-signal-gradient bg-clip-text text-transparent;
+  /* Fine-line hover links (Infosys style) */
+  .fine-link {
+    @apply relative inline-block text-[13px] font-bold uppercase tracking-widest text-navy transition-colors duration-300;
+  }
+  .fine-link::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-full h-[1px] bg-navy origin-right scale-x-0 transition-transform duration-500 ease-out;
+  }
+  .fine-link:hover::after {
+    @apply origin-left scale-x-100;
   }
 
   /* Standard section container */
   .section-shell {
-    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12;
+    @apply mx-auto w-full max-w-7xl px-6 sm:px-8 lg:px-12 py-24 lg:py-32;
   }
 
-  /* Contact form field styling */
-  .form-input {
-    @apply w-full rounded-lg border border-surface-border bg-void px-4 py-2.5 text-sm text-ink-primary
-           placeholder:text-ink-muted transition-colors duration-200
-           focus:border-teal-bright/60 focus:outline-none;
+  /* Card styling - Light Mode */
+  .vynora-card {
+    @apply rounded-xl border border-corporate-border bg-white shadow-corporate hover:shadow-lg hover:border-azure/30 transition-all duration-300;
   }
 
-  /* Hairline divider used between panel edges (circuit-trace motif) */
+  /* Hairline divider */
   .trace-line {
     @apply relative;
   }
@@ -92,7 +97,7 @@ body {
     background-image: linear-gradient(
       90deg,
       transparent,
-      rgba(63, 233, 207, 0.35),
+      rgba(0, 124, 195, 0.2),
       transparent
     );
     height: 1px;

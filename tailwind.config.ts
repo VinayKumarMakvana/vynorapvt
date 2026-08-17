@@ -1,7 +1,6 @@
 import type { Config } from "tailwindcss";
 
-// Design tokens for Vinay's Web Studio
-// Palette: charcoal-void base, deep blue -> teal signal gradient, gold reserved for primary CTAs only.
+// Design tokens for VYNORA (Light Corporate Enterprise Theme)
 const config: Config = {
   content: [
     "./src/app/**/*.{ts,tsx}",
@@ -10,32 +9,25 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        void: {
-          DEFAULT: "#0a0d12",
-          soft: "#0d1117",
+        corporate: {
+          DEFAULT: "#ffffff",
+          gray: "#f8f9fa",     // Very light gray for subtle section contrast
+          border: "#e2e8f0",   // Slate-200
         },
-        surface: {
-          DEFAULT: "#10151c",
-          raised: "#161c26",
-          border: "#212a36",
+        navy: {
+          DEFAULT: "#0f172a",  // Deep Navy Blue (Slate-900)
+          muted: "#334155",    // Slate-700
+          light: "#64748b",    // Slate-500
         },
-        blue: {
-          deep: "#123a72",
-          signal: "#2e6fe0",
+        azure: {
+          DEFAULT: "#007cc3",  // Infosys-style Azure Blue
+          light: "#0099f0",
+          dark: "#005a8f",
         },
-        teal: {
-          DEFAULT: "#17b8a4",
-          bright: "#3fe9cf",
-        },
-        gold: {
-          DEFAULT: "#e8b34c",
-          bright: "#f6d488",
-        },
-        ink: {
-          primary: "#edf1f5",
-          secondary: "#93a1b3",
-          muted: "#5a6779",
-        },
+        vynora: {
+          purple: "#7e22ce",   // Subtle brand accent
+          gold: "#b87333",     // Subtle brand accent
+        }
       },
       fontFamily: {
         display: ["var(--font-display)", "sans-serif"],
@@ -43,22 +35,36 @@ const config: Config = {
         mono: ["var(--font-mono)", "monospace"],
       },
       backgroundImage: {
-        "signal-gradient": "linear-gradient(115deg, #123a72 0%, #17b8a4 100%)",
-        "signal-gradient-vertical": "linear-gradient(180deg, #123a72 0%, #17b8a4 100%)",
-        "void-fade": "linear-gradient(180deg, rgba(10,13,18,0) 0%, #0a0d12 100%)",
-        "void-fade-top": "linear-gradient(0deg, rgba(10,13,18,0) 0%, #0a0d12 100%)",
+        "azure-gradient": "linear-gradient(135deg, #007cc3 0%, #005a8f 100%)",
+        "subtle-gradient": "linear-gradient(135deg, rgba(0,124,195,0.05) 0%, rgba(126,34,206,0.05) 100%)",
       },
       boxShadow: {
-        "gold-glow": "0 0 20px rgba(232, 179, 76, 0.35), 0 0 1px rgba(232, 179, 76, 0.8)",
-        "gold-glow-lg": "0 0 40px rgba(232, 179, 76, 0.45), 0 0 2px rgba(232, 179, 76, 0.9)",
-        "teal-glow": "0 0 30px rgba(23, 184, 164, 0.25)",
+        "corporate": "0 10px 40px -10px rgba(15,23,42,0.08)",
+        "azure-glow": "0 0 20px rgba(0, 124, 195, 0.3)",
       },
       letterSpacing: {
         widest2: "0.25em",
+        "widest-xl": "0.3em",
+      },
+      fontWeight: {
+        "ultra-thin": "100",
+        "super-light": "200",
       },
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "float": "float 6s ease-in-out infinite",
+        "marquee": "marquee 25s linear infinite",
       },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0%)' },
+          '100%': { transform: 'translateX(-100%)' },
+        }
+      }
     },
   },
   plugins: [],

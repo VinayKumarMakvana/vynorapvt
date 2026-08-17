@@ -174,7 +174,7 @@ export async function POST(request: Request) {
     // 7. Send email
     // -------------------------------------------------------
     const mailInfo = await transporter.sendMail({
-      from: `"Vinay's Web Studio — Website" <${SMTP_USER}>`,
+      from: `"VYNORA — Website" <${SMTP_USER}>`,
 
       to: CONTACT_EMAIL,
 
@@ -210,7 +210,7 @@ export async function POST(request: Request) {
               margin-top: 0;
             "
           >
-            Submitted via Vinay's Web Studio
+            Submitted via VYNORA
           </p>
 
           <table
@@ -319,7 +319,7 @@ export async function POST(request: Request) {
             "
           >
             This message was automatically generated
-            from the Vinay's Web Studio website contact form.
+            from the VYNORA website contact form.
           </p>
 
         </div>

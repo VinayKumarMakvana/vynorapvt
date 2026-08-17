@@ -18,7 +18,7 @@ export default function Home() {
     <main className="bg-corporate-gray min-h-screen text-navy">
       
       {/* 1. CINEMATIC HERO SECTION */}
-      <section className="relative h-[90vh] min-h-[700px] flex flex-col justify-center pb-32 md:pb-0">
+      <section className="relative h-auto md:h-[90vh] min-h-screen md:min-h-[700px] flex flex-col justify-center pt-32 pb-12 md:pt-0 md:pb-0">
         
         {/* Stunning Cinematic Background */}
         <div className="absolute inset-0 z-0 overflow-hidden">
@@ -39,9 +39,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-ultra-thin text-white mb-12 tracking-tight drop-shadow-2xl"
+            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-ultra-thin text-white mb-8 md:mb-12 tracking-tight drop-shadow-2xl leading-tight"
           >
-            Navigate your <span className="font-super-light">digital future</span>
+            Navigate your <br className="md:hidden" /><span className="font-super-light">digital future</span>
           </motion.h1>
         </div>
 

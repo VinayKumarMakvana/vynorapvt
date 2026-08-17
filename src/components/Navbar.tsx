@@ -165,7 +165,7 @@ const Navbar = () => {
             className="fixed inset-0 z-40 bg-white pt-20 flex overflow-hidden"
           >
             {/* Left Sidebar (Categories) */}
-            <div className="w-full md:w-1/3 lg:w-1/4 bg-white border-r border-corporate-border overflow-y-auto pt-8 pb-32 h-full shadow-[20px_0_40px_-20px_rgba(0,0,0,0.05)] relative z-10">
+            <div className="w-full md:w-1/3 lg:w-1/4 bg-white md:border-r border-corporate-border overflow-y-auto pt-8 pb-32 h-full shadow-[20px_0_40px_-20px_rgba(0,0,0,0.05)] relative z-10">
               <motion.ul 
                 variants={containerVariants}
                 initial="hidden"
@@ -173,11 +173,11 @@ const Navbar = () => {
                 className="flex flex-col"
               >
                 {categories.map((cat) => (
-                  <motion.li key={cat.name} variants={itemVariants}>
+                  <motion.li key={cat.name} variants={itemVariants} className="border-b border-corporate-border/30 md:border-none">
                     <button
                       onMouseEnter={() => setActiveCategory(cat.name)}
-                      onClick={() => setActiveCategory(cat.name)}
-                      className={`w-full text-left px-8 py-5 text-xl lg:text-2xl font-display transition-all duration-300 flex justify-between items-center group ${
+                      onClick={() => setActiveCategory(activeCategory === cat.name ? '' : cat.name)}
+                      className={`w-full text-left px-6 md:px-8 py-5 text-xl lg:text-2xl font-display transition-all duration-300 flex justify-between items-center group ${
                         activeCategory === cat.name 
                           ? 'text-azure font-medium bg-azure/5' 
                           : 'text-navy hover:bg-corporate-gray'
@@ -187,11 +187,40 @@ const Navbar = () => {
                         {cat.name}
                       </span>
                       {activeCategory === cat.name && (
-                        <motion.div layoutId="activeArrow" className="text-azure">
+                        <motion.div layoutId="activeArrow" className="text-azure hidden md:block">
                            <ArrowRight size={24} strokeWidth={1.5} />
                         </motion.div>
                       )}
                     </button>
+
+                    {/* Mobile Accordion Sublinks */}
+                    <AnimatePresence>
+                      {activeCategory === cat.name && (
+                        <motion.div 
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          className="md:hidden overflow-hidden bg-corporate-gray/30"
+                        >
+                          <div className="px-8 py-4 flex flex-col gap-4">
+                            {subLinks[cat.name]?.length > 0 ? (
+                              subLinks[cat.name].map((link, idx) => (
+                                <Link 
+                                  key={idx}
+                                  href={link.href}
+                                  onClick={() => setMenuOpen(false)}
+                                  className="text-base text-navy hover:text-azure transition-colors block py-1"
+                                >
+                                  {link.title}
+                                </Link>
+                              ))
+                            ) : (
+                              <span className="text-sm text-navy-muted italic">Coming soon</span>
+                            )}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </motion.li>
                 ))}
               </motion.ul>

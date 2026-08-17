@@ -18,10 +18,10 @@ export default function Home() {
     <main className="bg-corporate-gray min-h-screen text-navy">
       
       {/* 1. CINEMATIC HERO SECTION */}
-      <section className="relative h-[90vh] min-h-[700px] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[90vh] min-h-[700px] flex flex-col justify-center pb-32 md:pb-0">
         
         {/* Stunning Cinematic Background */}
-        <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 z-0 overflow-hidden">
           <Image 
             src="/images/hero.jpg" 
             alt="Cinematic Mountain Peaks" 
@@ -34,20 +34,20 @@ export default function Home() {
         </div>
 
         {/* Center Tagline & Search */}
-        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center mt-20">
+        <div className="relative z-10 w-full max-w-5xl mx-auto px-6 text-center mt-0 md:mt-20">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-display font-ultra-thin text-white mb-12 tracking-tight drop-shadow-2xl"
+            className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-display font-ultra-thin text-white mb-12 tracking-tight drop-shadow-2xl"
           >
             Navigate your <span className="font-super-light">digital future</span>
           </motion.h1>
         </div>
 
         {/* Overlapping Bottom Insight Cards (Classic Infosys style) */}
-        <div className="absolute bottom-0 left-0 w-full px-6 lg:px-12 z-20 translate-y-1/2">
-          <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-6">
+        <div className="relative md:absolute bottom-0 left-0 w-full px-6 lg:px-12 z-20 md:translate-y-1/2 mt-12 md:mt-0">
+          <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { title: "VYNORA Topaz", desc: "An AI-first set of services." },
               { title: "VYNORA Cobalt", desc: "Enterprise cloud platforms." },
@@ -59,11 +59,12 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 + (idx * 0.1) }}
+                className="h-full"
               >
-                <Link href="/services" className="block bg-white p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border-t-[3px] border-azure hover:-translate-y-2 transition-transform duration-500 h-full group relative overflow-hidden">
+                <Link href="/services" className="block bg-white p-6 md:p-8 shadow-[0_20px_60px_-15px_rgba(0,0,0,0.1)] border-t-[3px] border-azure hover:-translate-y-2 transition-transform duration-500 h-full group relative overflow-hidden">
                   <h3 className="text-[17px] font-bold text-navy mb-3 group-hover:text-azure transition-colors pr-6">{card.title}</h3>
                   <p className="text-sm text-navy-muted font-medium leading-relaxed">{card.desc}</p>
-                  <ArrowUpRight size={20} className="absolute top-8 right-6 text-azure opacity-0 group-hover:opacity-100 transition-opacity duration-300" strokeWidth={1.5} />
+                  <ArrowUpRight size={20} className="absolute top-6 md:top-8 right-6 text-azure opacity-0 group-hover:opacity-100 transition-opacity duration-300" strokeWidth={1.5} />
                 </Link>
               </motion.div>
             ))}
@@ -72,7 +73,8 @@ export default function Home() {
       </section>
 
       {/* Spacing for overlapping cards */}
-      <div className="h-40 bg-white"></div>
+      <div className="hidden md:block h-40 bg-white"></div>
+      <div className="md:hidden h-16 bg-white"></div>
 
       {/* 2. TOP STORIES CAROUSEL */}
       <section className="py-32 bg-white relative">

@@ -61,8 +61,7 @@ const Footer = () => {
         <div className="border-t border-corporate-border pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-navy-light font-medium uppercase tracking-wider">
           <p>&copy; {new Date().getFullYear()} VYNORA DIGITAL. ALL RIGHTS RESERVED.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <a href="https://linkedin.com/company/vynora" target="_blank" rel="noopener noreferrer" className="hover:text-azure transition-colors">LinkedIn</a>
-            <a href="https://twitter.com/vynora" target="_blank" rel="noopener noreferrer" className="hover:text-azure transition-colors">Twitter</a>
+            <a href="https://linkedin.com/company/vynora-pvt" target="_blank" rel="noopener noreferrer" className="hover:text-azure transition-colors">LinkedIn</a>
           </div>
         </div>
       </div>
